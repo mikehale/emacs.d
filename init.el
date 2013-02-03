@@ -112,4 +112,14 @@
 
 (add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; Enable ruby-electric-mode in ruby-mode
+;;
+
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
+
+;; Enable markdown-mode
+;;
+
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
