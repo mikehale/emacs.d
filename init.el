@@ -1,3 +1,17 @@
+;; Ensure console and GUI emacs use the PATH and exec-path defined by the shell
+;;
+
+(if (not (getenv "TERM_PROGRAM"))
+    (let ((path (shell-command-to-string "$SHELL -cl \"printf %s \\\"\\\$PATH\\\"\"")))
+      (setenv "PATH" path)
+      (setq exec-path (split-string path path-separator))))
+
+;; Server management
+;;
+
+(load "server")
+(unless (server-running-p) (server-start))
+
 ;; Packages
 ;;
 
@@ -29,6 +43,8 @@
                       heroku
                       gist
                       yasnippet-bundle
+                      rspec-mode
+                      ruby-interpolation
                       ))
 
 (dolist (p my-packages)
@@ -95,7 +111,7 @@
 ;; Keybindings
 ;;
 
-(global-set-key (kbd "M-/") 'dabbrev-expand)
+(global-set-key (kbd "M-\\") 'dabbrev-expand)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "M-s") 'save-buffer)
@@ -135,4 +151,3 @@
 ;;
 
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
