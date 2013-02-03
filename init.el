@@ -89,8 +89,8 @@
 ;; Line numbers
 ;;
 
-(require 'linum+)
-(global-linum-mode 1)
+;; (require 'linum+)
+;; (global-linum-mode 1)
 
 ;; Auto-save desktop
 ;;
