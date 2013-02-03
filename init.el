@@ -28,6 +28,7 @@
                       ruby-electric
                       heroku
                       gist
+                      yasnippet-bundle
                       ))
 
 (dolist (p my-packages)
@@ -35,6 +36,14 @@
     (package-install p)))
 
 (add-to-list 'load-path "~/.emacs.d/vendor")
+
+;; Snippets
+;;
+
+(require 'yasnippet)
+(yas/initialize)
+(setq yas/root-directory "~/.emacs.d/vendor/yasnippets")
+(yas/load-directory yas/root-directory)
 
 ;; Theme
 ;;
