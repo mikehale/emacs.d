@@ -1,10 +1,16 @@
 ;; Ensure console and GUI emacs use the PATH and exec-path defined by the shell
 ;;
 
-(if (not (getenv "TERM_PROGRAM"))
+(if window-system
     (let ((path (shell-command-to-string "$SHELL -cl \"printf %s \\\"\\\$PATH\\\"\"")))
       (setenv "PATH" path)
       (setq exec-path (split-string path path-separator))))
+
+;; GUI Frame settings
+;;
+
+(if window-system
+    (set-frame-size (selected-frame) 200 30))
 
 ;; Server management
 ;;
