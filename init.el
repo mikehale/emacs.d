@@ -117,9 +117,8 @@
 ;; Keybindings
 ;;
 
-(global-set-key (kbd "M-\\") 'dabbrev-expand)
+(global-set-key (kbd "M-/") 'dabbrev-expand)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-z") 'undo)
 (global-set-key (kbd "C-x C-k") 'kill-current-buffer)
