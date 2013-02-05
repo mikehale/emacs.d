@@ -157,3 +157,8 @@
 ;;
 
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+;; Stop asking whether to save newly added abbrev when quitting emacs
+;;
+
+(setq save-abbrevs nil)
