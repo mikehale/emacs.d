@@ -130,6 +130,17 @@
         (forward-line 1)
         (forward-char pos)))))
 
+(defun move-line-up ()
+  (interactive)
+  (transpose-lines 1)
+  (previous-line 2))
+
+(defun move-line-down ()
+  (interactive)
+  (next-line 1)
+  (transpose-lines 1)
+  (previous-line 1))
+
 ;; Spelling
 ;;
 
@@ -139,6 +150,8 @@
 ;; Keybindings
 ;;
 
+(global-set-key (kbd "C-S-<up>") 'move-line-up)
+(global-set-key (kbd "C-S-<down>") 'move-line-down)
 (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 (global-set-key (kbd "M-/") 'dabbrev-expand)
 (global-set-key (kbd "C-x g") 'magit-status)
