@@ -159,6 +159,12 @@
 (global-set-key (kbd "M-z") 'undo)
 (global-set-key (kbd "C-x C-k") 'kill-current-buffer)
 
+;; Enable shell script mode for zsh scripts
+;;
+
+(setq auto-mode-alist (cons '("zprofile" . shell-script-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("zshrc" . shell-script-mode) auto-mode-alist))
+
 ;; Enable paredit for ruby
 ;;
 
