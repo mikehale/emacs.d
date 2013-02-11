@@ -6,6 +6,11 @@
       (setenv "PATH" path)
       (setq exec-path (split-string path path-separator))))
 
+;; Add mouse support (helpful for resizing panes)
+(require 'mouse)
+(xterm-mouse-mode t)
+(defun track-mouse (e))
+
 ;; GUI Frame settings
 ;;
 
