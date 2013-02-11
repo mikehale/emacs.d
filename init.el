@@ -109,9 +109,9 @@
 (defun kill-current-buffer () (interactive) (kill-buffer (buffer-name)))
 
 
+;; thanks to http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs
 (defun duplicate-line-or-region (&optional n)
   "Duplicate current line, or region if active. With argument N, make N copies. With negative N, comment out original line and use the absolute value."
-  ; thanks to http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs
   (interactive "*p")
   (let ((use-region (use-region-p)))
     (save-excursion
@@ -150,8 +150,15 @@
 ;; Keybindings
 ;;
 
-(global-set-key (kbd "C-S-<up>") 'move-line-up)
+;; Useful urls for configuring iIterm to send correct xterm key codes:
+;;   http://offbytwo.com/2012/01/15/emacs-plus-paredit-under-terminal.html
+;;   https://github.com/emacsmirror/emacs/blob/master/lisp/term/xterm.el
+
 (global-set-key (kbd "C-S-<down>") 'move-line-down)
+(global-set-key (kbd "C-S-<up>") 'move-line-up)
+(global-set-key (kbd "C-S-<left>") 'previous-buffer)
+(global-set-key (kbd "C-S-<right>") 'next-buffer)
+
 (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 (global-set-key (kbd "M-/") 'dabbrev-expand)
 (global-set-key (kbd "C-x g") 'magit-status)
