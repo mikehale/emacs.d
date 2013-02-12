@@ -159,8 +159,8 @@
 ;;   http://offbytwo.com/2012/01/15/emacs-plus-paredit-under-terminal.html
 ;;   https://github.com/emacsmirror/emacs/blob/master/lisp/term/xterm.el
 
-(global-set-key (kbd "C-S-<down>") 'move-line-down)
 (global-set-key (kbd "C-S-<up>") 'move-line-up)
+(global-set-key (kbd "C-S-<down>") 'move-line-down)
 (global-set-key (kbd "C-S-<left>") 'previous-buffer)
 (global-set-key (kbd "C-S-<right>") 'next-buffer)
 
