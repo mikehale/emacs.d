@@ -47,6 +47,7 @@
                       flymake
                       flymake-easy
                       flymake-ruby
+                      flymake-shell
                       zenburn-theme
                       desktop
                       markdown-mode
@@ -56,6 +57,7 @@
                       yasnippet-bundle
                       rspec-mode
                       ruby-interpolation
+                      gitconfig-mode
                       ))
 
 (dolist (p my-packages)
