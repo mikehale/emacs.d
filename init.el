@@ -1,3 +1,8 @@
+;; Server management
+
+(load "server")
+(unless (server-running-p) (server-start))
+
 ;; Ensure console and GUI emacs use the PATH and exec-path defined by the shell
 ;;
 
@@ -17,11 +22,6 @@
 (if window-system
     (set-frame-size (selected-frame) 200 30))
 
-;; Server management
-;;
-
-(load "server")
-(unless (server-running-p) (server-start))
 
 ;; Packages
 ;;
@@ -54,7 +54,6 @@
                       ruby-electric
                       heroku
                       gist
-                      yasnippet-bundle
                       rspec-mode
                       ruby-interpolation
                       gitconfig-mode
@@ -64,28 +63,7 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-(add-to-list 'load-path "~/.emacs.d/vendor")
-
-;; Snippets
-;;
-
-(require 'yasnippet)
-(yas/initialize)
-(setq yas/root-directory "~/.emacs.d/vendor/yasnippets")
-(yas/load-directory yas/root-directory)
-
-;; Yasnippet workaround for ruby-electric-mode
-;; See: http://code.google.com/p/yasnippet/issues/detail?id=71
-(defun yas/advise-indent-function (function-symbol)
-  (eval `(defadvice ,function-symbol (around yas/try-expand-first activate)
-           ,(format
-             "Try to expand a snippet before point, then call `%s' as usual"
-             function-symbol)
-           (let ((yas/fallback-behavior nil))
-             (unless (and (called-interactively-p 'any)
-                          (yas/expand))
-               ad-do-it)))))
-(yas/advise-indent-function 'ruby-indent-line)
+;; (add-to-list 'load-path "~/.emacs.d/vendor")
 
 ;; Theme
 ;;
@@ -96,8 +74,8 @@
 ;; Line numbers
 ;;
 
-(require 'linum+)
-(global-linum-mode 1)
+;; (require 'linum+)
+;; (global-linum-mode 1)
 
 ;; Auto-save desktop
 ;;
@@ -116,37 +94,37 @@
 (defun kill-current-buffer () (interactive) (kill-buffer (buffer-name)))
 
 
-;; thanks to http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs
-(defun duplicate-line-or-region (&optional n)
-  "Duplicate current line, or region if active. With argument N, make N copies. With negative N, comment out original line and use the absolute value."
-  (interactive "*p")
-  (let ((use-region (use-region-p)))
-    (save-excursion
-      (let ((text (if use-region ;Get region if active, otherwise line
-                      (buffer-substring (region-beginning) (region-end))
-                    (prog1 (thing-at-point 'line)
-                      (end-of-line)
-                      (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
-                          (newline))))))
-        (dotimes (i (abs (or n 1))) ;Insert N times, or once if not specified
-          (insert text))))
-    (if use-region nil ;Only if we're working with a line (not a region)
-      (let ((pos (- (point) (line-beginning-position)))) ;Save column
-        (if (> 0 n) ;Comment out original with negative arg
-            (comment-region (line-beginning-position) (line-end-position)))
-        (forward-line 1)
-        (forward-char pos)))))
+;; ;; ;; thanks to http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs
+;; ;; (defun duplicate-line-or-region (&optional n)
+;; ;;   "Duplicate current line, or region if active. With argument N, make N copies. With negative N, comment out original line and use the absolute value."
+;; ;;   (interactive "*p")
+;; ;;   (let ((use-region (use-region-p)))
+;; ;;     (save-excursion
+;; ;;       (let ((text (if use-region ;Get region if active, otherwise line
+;; ;;                       (buffer-substring (region-beginning) (region-end))
+;; ;;                     (prog1 (thing-at-point 'line)
+;; ;;                       (end-of-line)
+;; ;;                       (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
+;; ;;                           (newline))))))
+;; ;;         (dotimes (i (abs (or n 1))) ;Insert N times, or once if not specified
+;; ;;           (insert text))))
+;; ;;     (if use-region nil ;Only if we're working with a line (not a region)
+;; ;;       (let ((pos (- (point) (line-beginning-position)))) ;Save column
+;; ;;         (if (> 0 n) ;Comment out original with negative arg
+;; ;;             (comment-region (line-beginning-position) (line-end-position)))
+;; ;;         (forward-line 1)
+;; ;;         (forward-char pos)))))
 
-(defun move-line-up ()
-  (interactive)
-  (transpose-lines 1)
-  (previous-line 2))
+;; ;; (defun move-line-up ()
+;; ;;   (interactive)
+;; ;;   (transpose-lines 1)
+;; ;;   (previous-line 2))
 
-(defun move-line-down ()
-  (interactive)
-  (next-line 1)
-  (transpose-lines 1)
-  (previous-line 1))
+;; ;; (defun move-line-down ()
+;; ;;   (interactive)
+;; ;;   (next-line 1)
+;; ;;   (transpose-lines 1)
+;; ;;   (previous-line 1))
 
 ;; Spelling
 ;;
@@ -157,24 +135,24 @@
 ;; Keybindings
 ;;
 
-;; Useful urls for configuring iIterm to send correct xterm key codes:
-;;   http://offbytwo.com/2012/01/15/emacs-plus-paredit-under-terminal.html
-;;   https://github.com/emacsmirror/emacs/blob/master/lisp/term/xterm.el
+;; ;; Useful urls for configuring iIterm to send correct xterm key codes:
+;; ;;   http://offbytwo.com/2012/01/15/emacs-plus-paredit-under-terminal.html
+;; ;;   https://github.com/emacsmirror/emacs/blob/master/lisp/term/xterm.el
 
-(global-set-key (kbd "C-S-<up>") 'move-line-up)
-(global-set-key (kbd "C-S-<down>") 'move-line-down)
-(global-set-key (kbd "C-S-<left>") 'previous-buffer)
-(global-set-key (kbd "C-S-<right>") 'next-buffer)
+;; ;; (global-set-key (kbd "C-S-<up>") 'move-line-up)
+;; ;; (global-set-key (kbd "C-S-<down>") 'move-line-down)
+;; ;; (global-set-key (kbd "C-S-<left>") 'previous-buffer)
+;; ;; (global-set-key (kbd "C-S-<right>") 'next-buffer)
+;; (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 
-(global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 (global-set-key (kbd "M-/") 'dabbrev-expand)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-z") 'undo)
 (global-set-key (kbd "C-x C-k") 'kill-current-buffer)
 
-;; Enable shell script mode for zsh scripts
-;;
+;; ;; Enable shell script mode for zsh scripts
+;; ;;
 
 (setq auto-mode-alist (cons '("zprofile" . shell-script-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("zshrc" . shell-script-mode) auto-mode-alist))
@@ -184,32 +162,32 @@
 
 (add-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
 
-;; Enable ruby-block mode
-;;
+;; ;; Enable ruby-block mode
+;; ;;
 
-(require 'ruby-block)
-(ruby-block-mode t)
-(setq ruby-block-highlight-toggle t)
+;; (require 'ruby-block)
+;; (ruby-block-mode t)
+;; (setq ruby-block-highlight-toggle t)
 
-;; Enable on the fly syntax highlighting for ruby
-;;
+;; ;; Enable on the fly syntax highlighting for ruby
+;; ;;
 
-(require 'flymake-ruby)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+;; (require 'flymake-ruby)
+;; (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
-;; Ensure colors are handled properly in inf-ruby
-;;
+;; ;; Ensure colors are handled properly in inf-ruby
+;; ;;
 
-(add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on)
+;; (add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; Enable ruby-electric-mode in ruby-mode
-;;
+;; ;; Enable ruby-electric-mode in ruby-mode
+;; ;;
 
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
+;; (require 'ruby-electric)
+;; (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
 
-;; Enable markdown-mode
-;;
+;; ;; Enable markdown-mode
+;; ;;
 
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
