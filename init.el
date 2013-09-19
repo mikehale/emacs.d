@@ -57,6 +57,7 @@
                       rspec-mode
                       ruby-interpolation
                       gitconfig-mode
+                      go-mode
                       ))
 
 (dolist (p my-packages)
@@ -195,3 +196,7 @@
 ;;
 
 (setq save-abbrevs nil)
+
+;; (when (eq system-type 'darwin)
+;;   (require 'ls-lisp)
+;;     (setq ls-lisp-use-insert-directory-program nil))
