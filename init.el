@@ -48,7 +48,7 @@
                       flymake-easy
                       flymake-ruby
                       flymake-shell
-                      zenburn-theme
+                      obsidian-theme
                       desktop
                       markdown-mode
                       ruby-electric
@@ -64,19 +64,17 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; Set theme when not in console
+
+(if window-system
+    (load-theme 'obsidian t))
+
 ;; (add-to-list 'load-path "~/.emacs.d/vendor")
-
-;; Theme
-;;
-
-(load-theme 'zenburn t)
-;; (load-theme 'manoj-dark t)
 
 ;; Line numbers
 ;;
 
-;; (require 'linum+)
-;; (global-linum-mode 1)
+(global-linum-mode 0) ;; 0 disable, 1 enable
 
 ;; Auto-save desktop
 ;;
@@ -220,3 +218,4 @@
                (pbproxy (start-process "pbcopy" "pbcopy" "/usr/local/bin/pbcopy")))
           (process-send-string pbproxy text)
           (process-send-eof pbproxy))))
+
