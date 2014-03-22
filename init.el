@@ -36,6 +36,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+
 (defvar my-packages '(
                       starter-kit
                       starter-kit-bindings
@@ -58,6 +59,7 @@
                       ruby-interpolation
                       gitconfig-mode
                       go-mode
+                      powerline
                       ))
 
 (dolist (p my-packages)
@@ -68,6 +70,9 @@
 
 (if window-system
     (load-theme 'obsidian t))
+
+(require 'powerline)
+(powerline-default-theme)
 
 ;; (add-to-list 'load-path "~/.emacs.d/vendor")
 
