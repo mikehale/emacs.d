@@ -1,0 +1,128 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/mikehale/dev/heroku/herokai-videos/lib/" . "vimeo_frontend/")
+ ("/Users/mikehale/dev/heroku/herokai-videos/" . "views/")
+ ("/Users/mikehale/dev/heroku/rendezvous-socket/lib/" . "rendezvous/")
+ ("/Users/mikehale/dev/heroku/rendezvous-socket/" . "lib/")
+ ("/Users/mikehale/dev/dotfiles/" . "emacs.d.bak/")
+ ("/Users/mikehale/dev/heroku/ion/app/" . "models/")
+ ("/Users/mikehale/dev/heroku/ion/" . "app/")
+ ("/Users/mikehale/dev/heroku/" . "herokai-videos/")
+ ("/Users/mikehale/dev/" . "dotfiles/")
+ ("/Users/mikehale/" . ".emacs.d/")
+ ("/Users/mikehale/.emacs.d/personal/" . "preload/")
+ ("/Users/mikehale/.emacs.d/" . "personal/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/mikehale/.emacs.d/personal/"
+ "/Users/mikehale/dev/dotfiles/emacs.d.bak/"
+ "/Users/mikehale/.emacs.d/modules/"
+ "/Users/mikehale/dev/heroku/herokai-videos/views/"
+ "/Users/mikehale/dev/heroku/herokai-videos/lib/vimeo_frontend/"
+ "/Users/mikehale/dev/dotfiles/prelude/personal/"
+ "/Users/mikehale/dev/heroku/herokai-videos/lib/"
+ "/Users/mikehale/dev/heroku/herokai-videos/"
+ "/Users/mikehale/dev/heroku/rendezvous-server/"
+ "/Users/mikehale/dev/dotfiles/prelude/"
+ "/Users/mikehale/dev/heroku/rendezvous-socket/"
+ "/Users/mikehale/dev/heroku/rendezvous-socket/lib/rendezvous/"
+ "/Users/mikehale/"
+ "/Users/mikehale/.oh-my-zsh/lib/"
+ "/Users/mikehale/dev/dotfiles/prelude/modules/doc/"
+ "/Users/mikehale/dev/heroku/ion/"
+ "/Users/mikehale/.emacs.d/"
+ "/Users/mikehale/dev/heroku/ion/app/models/"
+ "/Users/mikehale/dev/heroku/direwolf/"
+ "/Users/mikehale/dev/heroku/"
+ "/Users/mikehale/.emacs.d/personal/preload/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "desktop.el"
+ "windowed-settings.el"
+ "001_init.el"
+ "init.el"
+ "prelude-ruby.el"
+ "index.erb"
+ "vimeo.rb"
+ "web.rb"
+ "config.rb"
+ "db.rb"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/mikehale/.emacs.d/personal/" (21302 39062 0 0) "windowed-settings.el" "theme.el" "terminal.el" "preload/" "notes.el" "desktop.el" "clipboard.el" "001_init.el" ".gitkeep" "../" "./")
+
+ ("/Users/mikehale/.emacs.d/" (21302 38951 0 0) "vendor/" "var/" "utils/" "themes/" "savefile/" "sample/" "README.md" "projectile-bookmarks.eld" "prelude-modules.el~" "prelude-modules.el" "personal/" "modules/" "init.el" "elpa/" "core/" "CONTRIBUTING.md" "auto-save-list/" "ac-comphist.dat" ".projectile" ".gitignore" ".git/" ".emacs.desktop.lock" ".emacs.desktop" "../" "./")
+
+ ("/Users/mikehale/.emacs.d/modules/" (21302 36587 0 0) "prelude-xml.el" "prelude-web.el" "prelude-scss.el" "prelude-scheme.el" "prelude-scala.el" "prelude-ruby.el" "prelude-python.el" "prelude-programming.el" "prelude-perl.el" "prelude-org.el" "prelude-mediawiki.el" "prelude-lisp.el" "prelude-latex.el" "prelude-key-chord.el" "prelude-js.el" "prelude-ido.el" "prelude-helm.el" "prelude-haskell.el" "prelude-erlang.el" "prelude-erc.el" "prelude-emacs-lisp.el" "prelude-css.el" "prelude-common-lisp.el" "prelude-coffee.el" "prelude-clojure.el" "prelude-c.el" "doc/" "../" "./")
+
+ ("/Users/mikehale/dev/dotfiles/emacs.d.bak/" (21302 31404 0 0) "vendor/" "var/" "url/" "tramp" "places" "init.el" "elpa/" "backups/" "auto-save-list/" ".smex-items" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/mikehale/" (21302 36522 0 0) "work/" "wad/" "VirtualBox VMs/" "var/" "sonian/" "Sites/" "Public/" "Pictures/" "PapaMap/" "org/" "News/" "Music/" "Movies/" "Library/" "lib/" "Google Drive/" "git/" "flows/" "Dropbox/" "Downloads/" "Documents/" "dev/" "Desktop/" "CmapToolsLogs/" "BTSync/" "Applications/" ".zshrc.pre-oh-my-zsh" ".zshrc" ".zsh_history.zmrbOU" ".zsh_history.ZBxTVQ" ".zsh_history.z9z3rD" ".zsh_history.YxIbVr" ".zsh_history.SKlQfQ" ".zsh_history.oBzp7A" ".zsh_history.jxwcG6" ".zsh_history.iOdOBQ" ".zsh_history" ".zsh-update" ".zprofile" ".zcompdump-mikehale-5.0.5" ".zcompdump-mikehale-4.3.11" ".zcompdump" ".Xcode/" ".xbmc/" ".Xauthority" ".wireshark-etc/" ".wireshark/" ".vimrc" ".viminfo" ".vagrant.d/" ".Trash/" ".tramp_history" ".tmux.conf" ".thor/" ".TemporaryItems/" ".swfinfo" ".subversion/" ".sshterm/" ".ssh/" ".sqlite_history" ".smex-items" ".smb/" ".slime-history.eld" ".slate" ".sh_history" ".serverauth.8297" ".serverauth.45839" ".saves/" ".s3cfg" ".rubyforge/" ".ruby_inline/" ".rstudio-desktop/" ".rnd" ".riplrc" ".ri/" ".Rhistory" ".rediscli_history" ".redcar/" ".recentf" ".rdebugrc" ".rdebug_hist" ".rbx/" ".rbenv/" ".raketabs/" ".rackspace" ".psql_history" ".pry_history" ".profile" ".powerupdate.user.properties" ".plex/" ".oh-my-zsh/" ".npm/" ".node_libraries/" ".node-repl_history" ".netrc" ".netbeans/" ".nbprofiler/" ".mysql_history" ".msgsrc" ".mplayer/" ".mediatomb/" ".MakeMKV/" ".m2/" ".local/" ".lftp/" ".lesshst" ".lein/" ".kermrc" ".java_history" ".irssi/" ".irbrc" ".irbc" ".irb_history" ".irb-save-history" ".irb-history" ".ion-client/" ".inputrc" ".ido.last" ".htoprc" ".hk/" ".hgrc" ".hgignore_global" ".heroku.bak/" ".heroku/" ".gvimrc" ".guard.rb" ".gradle/" ".gpg-agent-info" ".gnupg/" ".gitk" ".gitignore" ".gitconfig_private" ".gitconfig" ".gemrc" ".gem_old/" ".gem/" ".gdb_history" ".gcutil_auth" ".gcutil.version" ".gcutil.flags" ".Fuze_Meeting/" ".fontconfig/" ".fog" ".flickr/" ".filezilla/" ".ey-cloud.yml" ".explorer.local/" ".explorer.cache/" ".eshell/" ".erlang.cookie" ".emacs.d/" ".ejmsmoyn" ".ecb-tip-of-day.el" ".ec2" ".dyno-runtime/" ".dvdcss/" ".DS_Store" ".dropbox/" ".DownloadManager/" ".dir" ".dialyzer_plt" ".curlrc" ".cups/" ".cpan/" ".config/" ".clouds/" ".cloudapprc" ".chef.old/" ".chef" ".cheat/" ".CFUserTextEncoding" ".cassandra.history" ".cassandra-cli/" ".captain/" ".cache/" ".bzr.log" ".bundle/" ".bin/" ".bashrc" ".bash_history" ".bash_completion.d/" ".bash_completion" ".bananajour/" ".awssecret" ".autotest" ".aspell.en.pws" ".aspell.en.prepl" ".AppData/" ".apdisk" ".ackrc" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/rendezvous-server/" (21302 36509 0 0) "README.md" "Procfile" "Gemfile.lock" "Gemfile" "config.ru" "app.rb" ".gitignore" ".git/" ".env" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/herokai-videos/views/" (21302 32729 0 0) "video.erb" "scanner_video.erb" "rss.builder" "layout.erb" "index.erb" "../" "./")
+
+ ("/Users/mikehale/dev/dotfiles/prelude/personal/" (21302 35059 0 0) "windowed-settings.el" "theme.el" "terminal.el" "preload/" "notes.el" "desktop.el" "clipboard.el" "001_init.el" ".gitkeep" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/herokai-videos/" (21302 34412 0 0) "views/" "README.md" "public/" "Procfile" "migrations/" "lib/" "Gemfile.lock" "Gemfile" "config.ru" "bin/" ".ruby-version" ".gitignore" ".git/" ".env" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/herokai-videos/lib/vimeo_frontend/" (21302 33380 0 0) "worker.rb" "web.rb" "vimeo.rb" "db.rb" "config.rb" "api_key.rb" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/herokai-videos/lib/" (21302 32700 0 0) "vimeo_frontend.rb" "vimeo_frontend/" "../" "./")
+
+ ("/Users/mikehale/dev/dotfiles/prelude/" (21302 30869 0 0) "vendor/" "var/" "utils/" "themes/" "savefile/" "sample/" "README.md" "rainbow-mode.el" "projectile-bookmarks.eld" "prelude-modules.el~" "prelude-modules.el" "personal/" "modules/" "init.el" "elpa/" "core/" "CONTRIBUTING.md" "auto-save-list/" ".projectile" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/mikehale/dev/dotfiles/prelude/core/" (21302 30869 0 0) "prelude-ui.el" "prelude-packages.el" "prelude-osx.el" "prelude-mode.el" "prelude-global-keybindings.el" "prelude-editor.el" "prelude-core.el" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/direwolf/lib/direwolf/" (21302 30741 0 0) "worker.rb" "web/" "utils.rb" "user_apps_cleaner.rb" "test_reporter.rb" "test.rb" "test/" "tasks/" "status.rb" "serializer/" "schedule.rb" "runner.rb" "run.rb" "response.rb" "reporter/" "poll.rb" "monitor.rb" "model/" "middleware/" "inspector.rb" "helpers.rb" "execute_error.rb" "enqueue.rb" "endpoints/" "continuous.rb" "config.rb" "clouds_apps_cleaner.rb" "callback.rb" "api.rb" "api/" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/rendezvous-socket/lib/rendezvous/" (21302 29684 0 0) "socket.rb" "socket/" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/rendezvous-socket/lib/" (21165 7544 0 0) "rendezvous/" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/rendezvous-socket/" (21300 59278 0 0) "rendezvous-socket.gemspec" "README.md" "Rakefile" "pkg/" "LICENSE.txt" "lib/" "Gemfile.lock" "Gemfile" "bin/" ".ruby-version" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/mikehale/.oh-my-zsh/" (21287 4442 0 0) "tools/" "themes/" "templates/" "README.textile" "plugins/" "oh-my-zsh.sh" "MIT-LICENSE.txt" "log/" "lib/" "custom/" "cache/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/mikehale/.oh-my-zsh/lib/" (21302 26526 0 0) "theme-and-appearance.zsh" "termsupport.zsh" "spectrum.zsh" "prompt_info_functions.zsh" "nvm.zsh" "misc.zsh" "key-bindings.zsh" "history.zsh" "grep.zsh" "git.zsh" "functions.zsh" "directories.zsh" "correction.zsh" "completion.zsh" "bzr.zsh" "aliases.zsh" "../" "./")
+
+ ("/Users/mikehale/dev/dotfiles/emacs.d/" (21302 25673 0 0) "vendor/" "var/" "utils/" "themes/" "savefile/" "sample/" "README.md" "rainbow-mode.el" "projectile-bookmarks.eld" "prelude-modules.el~" "prelude-modules.el" "personal/" "modules/" "init.el" "elpa/" "core/" "CONTRIBUTING.md" "auto-save-list/" ".projectile" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/mikehale/dev/dotfiles/" (21302 24408 0 0) "zshrc" "zprofile" "xterm-importer.rb" "vimrc" "tmux.conf" "thor/" "setup.sh" "profiles/" "prelude/" "oh-my-zsh/" "irbrc" "install.sh" "gvimrc" "gitignore" "gitconfig" "gemrc" "fonts/" "emacs.d.bak/" "emacs.d/" "curlrc" "com.googlecode.iterm2.plist" "bin/" "bashrc" "bash_completion.d/" "bash_completion" "autotest" "ackrc" ".gitmodules" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/mikehale/dev/dotfiles/prelude/modules/doc/" (21302 25488 0 0) "README.md" "prelude-python.md" "../" "./")
+
+ ("/Users/mikehale/dev/dotfiles/prelude/personal/preload/" (21302 23461 0 0) "packages.el~" "packages.el" ".gitkeep" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/ion/app/models/" (21302 22466 0 0) "volume_group.rb" "volume.rb" "user.rb" "untracked_instances.rb" "termination_message.rb" "tagging_observer.rb" "snapshot.rb" "slot_ip_pool.rb" "release.rb" "logplex_channel.rb" "instance_searcher.rb" "instance.rb" "instance/" "image.rb" "event_registry.rb" "endpoint_policy_updater.rb" "endpoint_cert_activation.rb" "endpoint.rb" "elb_policy_updater.rb" "elb.rb" "dedicated_autoscaler.rb" "config_var_observer.rb" "config_var_app_attachment.rb" "config_var.rb" "config_topology.rb" "cert.rb" "autoscale_event.rb" "auto_scaling.rb" "auto_scaling/" "app_user_authorizer.rb" "app.rb" "app/" "api_key.rb" "ability.rb" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/ion/app/" (21296 15825 0 0) "views/" "models/" "mailers/" "jobs/" "interactors/" "helpers/" "controllers/" "assets/" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/ion/" (21302 23023 0 0) "vendor/" "UPGRADE" "tmp/" "spec/" "script/" "README.md" "Rakefile" "public/" "Procfile" "log/" "lib/" "images/" "Gemfile.lock" "Gemfile" "doc/" "db/" "config.ru" "config/" "clock.rb" "bin/" "app/" ".travis.yml" ".sass-cache/" ".rspec" ".irbrc" ".gitignore" ".git/" ".env" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/direwolf/" (21301 65504 0 0) "vendor/" "test/" "templates/" "support/" "Readme.md" "Rakefile" "Procfile" "lib/" "Gemfile.lock" "Gemfile" "docs/" "db/" "config.ru" "bin/" ".travis.yml" ".ruby-version" ".gitignore" ".git/" ".env" "../" "./")
+
+ ("/Users/mikehale/dev/heroku/" (21299 40013 0 0) "zmq-test/" "yobuko/" "wombat/" "wolfpack-raven/" "wolfpack/" "web" "watchtower/" "wale-packaging/" "WAL-E/" "ventricle-splunk-shim/" "ventricle/" "vegur/" "vault/" "varnish/" "v2slug/" "v1slug/" "umpire/" "twistedgit/" "tmp/" "tines/" "test-harness/" "tempo/" "taps3/" "taps19/" "survey/" "stethoscope/" "status/" "starter-project.txt" "ssl-ip-check/" "sputnik/" "splunk.bak.tgz" "splunk-notes/" "splunk-indexer-upgrade/" "splunk/" "sns-to-logplex/" "slug-url-helper/" "slug-compiler/" "slinky/" "sigma/" "shogun/" "shh/" "shepherd-dashbord/" "shen-packaging/" "shen/" "security/" "secrets/" "search.log.gz" "search-jobs.tgz" "scrolls/" "scratch/" "scom/" "scale-test/" "runtimes.txt" "rsyslog-packaging/" "ribosome/" "reservoir/" "rendezvous-socket/" "rendezvous-server/" "rendezvous/" "releaseinator/" "reconcile-endpoints/" "railgun/" "pulse/" "pub" "psmgr.cap.txt" "psmgr.cap" "psmgr/" "prod.list" "polyfills/" "playbook_generator.rb" "pingdom-cli/" "pgbackups/" "pdcal/" "opsinfra/" "ops-security.txt" "ops-playbooks/" "ops-docs/" "ops-console/" "ops/" "openssl_passwd.rb" "opensource/" "openid-redirector/" "old_face/" "off-call/" "notes.org" "notes/" "nile/" "nfsiostat.log.2.gz" "nfs-server-capture/" "new_config_vars.sh" "nagios_status/" "nagios_reaper/" "nagios_notifier/" "nagios-rename-deploy.txt" "nagios-plugins/" "nagios-dashboard/" "multi-line.config" "mochiweb/" "mls/" "mitt-post.rb" "mitt-carbon/" "mitt/" "migration.log.2012-02-20.19-00-44" "mhale-ipv6/" "mhale-clojure/" "merman/" "memcached-app/" "manifesto/" "maas-consumer-nagios/" "maas-client/" "maas/" "m2met/" "logplex_face/" "logplex-client/" "logplex/" "log-shuttle/" "list.txt" "leech-drain/" "ldap/" "language-pack-ruby/" "l2met/" "keyblaster/" "izanami/" "ion-us-west-2.md" "ion-mhale-rebuild.sh" "ion-client-extract-config-vars.rb" "ion-client/" "ion-build/" "ion-api/" "ion/" "instances/" "indexers2.txt" "indexers.txt" "HVM/" "http-debug/" "heroku_rack/" "heroku.rb/" "heroku-redis-sshtunnel/" "heroku-ps/" "heroku-openid/" "heroku-grapher/" "heroku-db-migrate/" "heroku-cedar-streaming-demo/" "heroku-buildpack-testrunner/" "heroku-buildpack-ruby/" "heroku-buildpack-java/" "heroku-buildpack-hello/" "heroku-buildpack-erlang/" "heroku-api/" "heroku-anvil/" "heroku/" "herokai-videos-scanner/" "herokai-videos/" "hermes-logging-notes.md" "hermes/" "helloworld/" "hello-plack/" "heartbeat_apps/" "heartbeat/" "grant-rodgers-starter-project/" "gitproxy/" "gitosis-admin/" "git-mirror-poke/" "gist-4ba252ea/" "gemgate-heroku-internal-gems/" "foundation-manifesto/" "foundation/" "fog-bouncer/" "finger/" "fine/" "filtered" "factor/" "faces.prod.txt" "face/" "fabber/" "excon/" "envmonkey/" "engineering-docs/" "elbssl/" "elbs.rb" "eatymydata/" "dyno-runtime/" "dump.rdb" "droid/" "doozer-drawings/" "do-work.rb" "direwolf/" "devcloud-ci/" "deploymaster/" "deploy-notes.org" "decommissioned_runtimes.txt" "debian-packaging/" "dashboards/" "darwin/" "cron/" "cramp-test/" "corgi-me/" "core/" "comsat/" "collectd_plugins/" "collectd/" "codon/" "codex/" "code/" "cloudwatcher/" "cloud-roller/" "clj-mitt/" "checkmydns/" "chat/" "cedar-test/" "cedar-hello-world/" "cassandra-on-heroku/" "candidate/" "canary_rack3/" "canary_rack/" "caas-platform-app-manifest/" "caas/" "boot_failed.txt" "boot.log" "biz/" "bitplex/" "bin/" "bamboo/" "balrog/" "backstop-dimensioned/" "backstop-deploys/" "backstop/" "aws" "argv_inspector.rb" "apps/" "apollo/" "api.json" "api/" "aorta_urls.txt" "aorta/" "anvil-cli/" "anvil/" "andvari/" "addon.js" "acts-as-taggable-on/" "account_ids.txt" ".DS_Store" ".anvil/" ".#unfiltered" ".#mitt-post.rb" ".#ion-us-west-2.md" "#psmgr.cap.txt#" "../" "./")
+
+ ("/Users/mikehale/dev/" (21297 34675 0 0) "zossima/" "xbmc/" "websockets/" "vpn/" "VMBuilder-0.12.4/" "veewee/" "vagrant/" "unified-pvr/" "ubuntu_ami/" "tmp/" "timetracker/" "tic-tac-node/" "storm-starter/" "storm/" "stem/" "splunked/" "spice/" "spacesuit/" "shairport-0.03.tar.gz" "setgetscreenres.m" "setgetscreenres" "sequel/" "scrolls/" "ripple/" "riak_rsyslog/" "riak/" "ri_cal/" "resume/" "rcreative-website/" "radiant-mediamaid-extension/" "pubrator/" "priiloader/" "Priam.orig/" "Priam/" "practicesync/" "pianobar/" "opscode/" "openssl-0.9.8o/" "openid-store-sequel/" "octopress/" "nokogiri/" "node/" "netboot/" "narnia/" "mythtv-0.22/" "mod_auth_openid/" "mmm/" "mlist/" "mixlib-shellout/" "mixlib-config/" "mixlib-cli/" "mirrored-debootstrap-install/" "mikehale-cookbooks-6dfc8fd.tar.gz" "mikehale-buildpack-env/" "memberhub/" "magit-1.0.0.tar.gz" "magit-1.0.0/" "lxc/" "logo/" "libopkele/" "libbluray/" "libaacs/" "les_site/" "learn-ruby-zeromq/" "learn-c-the-hard-way/" "l2met/" "Knife-Plugins/" "keyboard_map.txt" "jquery/" "JobStuff/" "iTerm2/" "import_export_tool/" "heroku-starter-project/" "heroku/" "HandBrake/" "halefamilyfarm/" "gosandbox/" "gorg/" "gobyexample/" "go/" "gist-466061/" "geoffd/" "foreman-upstart-scaling/" "foreman/" "fog-bouncer/" "fog/" "emacs-23.3a.tar.gz" "emacs-23.3/" "elbping/" "editor_install.sh" "ec2_autoscale/" "ebay.com.au/" "easy-rsa/" "dynect_rest/" "drive-thru/" "dotfiles/" "doozerd/" "doozer-sandbox/" "doozer-0.7/" "doozer/" "delayed_job/" "dd-wrt/" "daemons/" "cucumber-chef-sandbox/" "cookbooks/" "cloudwatcher/" "cloud-init/" "clojure-meetup/" "chef/" "cassandra.sh" "cassandra-on-heroku/" "captain/" "bundler/" "bsdp2/" "bsdp/" "brew2deb/" "boxes/" "blog/" "bloat.me/" "backstop/" "aws-scripts/" "aws/" "avr/" "apache-cassandra-1.1.6/" "adzerk/" "acts-as-taggable-on/" "aacskeys-0.4.0e/" "1102744" "1098107" ".vagrant" ".DS_Store" "../" "./")
+
+ ("/Users/mikehale/.emacs.d/elpa/" (21302 21507 0 0) "zenburn-theme-20140323.913/" "yari-20140206.611/" "volatile-highlights-20130321.641/" "undo-tree-20140110.616/" "smex-20140131.1006/" "smartparens-20140328.809/" "s-20131223.944/" "ruby-tools-20140113.45/" "rbenv-20140318.424/" "rainbow-mode-0.9/" "rainbow-delimiters-20140325.1233/" "projectile-20140328.817/" "pkg-info-20140313.513/" "pcache-20131201.1159/" "move-text-20140307.1644/" "magit-20140328.838/" "logito-20120225.1255/" "inf-ruby-20140306.1941/" "ido-ubiquitous-20140327.1625/" "guru-mode-20140103.1545/" "grizzl-20130810.202/" "gitignore-mode-20140313.1504/" "gitconfig-mode-20140313.1504/" "git-rebase-mode-20140313.1504/" "git-commit-mode-20140313.1504/" "gist-20131109.2155/" "gh-20140121.2038/" "flycheck-20140328.743/" "flx-ido-20131030.1243/" "flx-20130728.820/" "f-20140220.21/" "expand-region-20140315.2326/" "exec-path-from-shell-20140219.104/" "epl-20140316.544/" "elisp-slime-nav-20140116.405/" "dired-hacks-utils-20140326.255/" "diminish-20091203.1012/" "dash-20140327.116/" "browse-kill-ring-20131116.2113/" "archives/" "anzu-20140327.923/" "ack-and-a-half-20130815.1917/" "ace-jump-mode-20140207.530/" "../" "./")
+
+ ("/Users/mikehale/.emacs.d/elpa/ido-ubiquitous-20140327.1625/" (21302 19458 0 0) "ido-ubiquitous.elc" "ido-ubiquitous.el" "ido-ubiquitous-pkg.elc" "ido-ubiquitous-pkg.el" "ido-ubiquitous-autoloads.el~" "ido-ubiquitous-autoloads.el" "../" "./")
+
+ ("/Users/mikehale/.emacs.d/personal/preload/" (21302 21136 0 0) "packages.el~" "packages.el" ".gitkeep" "../" "./")
+
+ ("/Users/mikehale/.emacs.d/elpa/yari-20140206.611/" (21302 20302 0 0) "yari.el" "yari-pkg.el" "yari-autoloads.el" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

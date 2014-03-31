@@ -1,226 +1,127 @@
-;; Server management
-
-(load "server")
-(unless (server-running-p) (server-start))
-
-;; Ensure console and GUI emacs use the PATH and exec-path defined by the shell
+;;; init.el --- Prelude's configuration entry point.
 ;;
-
-(if window-system
-    (let ((path (shell-command-to-string "$SHELL -cl \"printf %s \\\"\\\$PATH\\\"\"")))
-      (setenv "PATH" path)
-      (setq exec-path (split-string path path-separator))))
-
-;; Add mouse support (helpful for resizing panes)
-(require 'mouse)
-(xterm-mouse-mode t)
-(defun track-mouse (e))
-
-;; GUI Frame settings
+;; Copyright (c) 2011 Bozhidar Batsov
 ;;
+;; Author: Bozhidar Batsov <bozhidar@batsov.com>
+;; URL: http://batsov.com/prelude
+;; Version: 1.0.0
+;; Keywords: convenience
 
-(if window-system
-    (set-frame-size (selected-frame) 200 30))
+;; This file is not part of GNU Emacs.
 
+;;; Commentary:
 
-;; Packages
+;; This file simply sets up the default load path and requires
+;; the various modules defined within Emacs Prelude.
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License
+;; as published by the Free Software Foundation; either version 3
+;; of the License, or (at your option) any later version.
 ;;
-
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-
-(defvar my-packages '(
-                      starter-kit
-                      starter-kit-bindings
-                      starter-kit-js
-                      starter-kit-lisp
-                      starter-kit-ruby
-                      starter-kit-eshell
-                      ruby-block
-                      flymake
-                      flymake-easy
-                      flymake-ruby
-                      flymake-shell
-                      obsidian-theme
-                      desktop
-                      markdown-mode
-                      ruby-electric
-                      heroku
-                      gist
-                      rspec-mode
-                      ruby-interpolation
-                      gitconfig-mode
-                      go-mode
-                      powerline
-                      ))
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
-
-;; Set theme when not in console
-
-(if window-system
-    (load-theme 'obsidian t))
-
-(require 'powerline)
-(powerline-default-theme)
-
-;; (add-to-list 'load-path "~/.emacs.d/vendor")
-
-;; Line numbers
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
 ;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
 
-(global-linum-mode 0) ;; 0 disable, 1 enable
+;;; Code:
+(defvar current-user
+      (getenv
+       (if (equal system-type 'windows-nt) "USERNAME" "USER")))
 
-;; Auto-save desktop
-;;
+(message "Prelude is powering up... Be patient, Master %s!" current-user)
 
-(desktop-save-mode 1)
-(defun my-desktop-save ()
-  (interactive)
-  ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
-  (if (eq (desktop-owner) (emacs-pid))
-      (desktop-save desktop-dirname)))
-(add-hook 'auto-save-hook 'my-desktop-save)
+(when (version< emacs-version "24.1")
+  (error "Prelude requires at least GNU Emacs 24.1"))
 
-;; Functions
-;;
+(defvar prelude-dir (file-name-directory load-file-name)
+  "The root dir of the Emacs Prelude distribution.")
+(defvar prelude-core-dir (expand-file-name "core" prelude-dir)
+  "The home of Prelude's core functionality.")
+(defvar prelude-modules-dir (expand-file-name  "modules" prelude-dir)
+  "This directory houses all of the built-in Prelude modules.")
+(defvar prelude-personal-dir (expand-file-name "personal" prelude-dir)
+  "This directory is for your personal configuration.
 
-(defun kill-current-buffer () (interactive) (kill-buffer (buffer-name)))
+Users of Emacs Prelude are encouraged to keep their personal configuration
+changes in this directory.  All Emacs Lisp files there are loaded automatically
+by Prelude.")
+(defvar prelude-personal-preload-dir (expand-file-name "preload" prelude-personal-dir)
+  "This directory is for your personal configuration, that you want loaded before Prelude.")
+(defvar prelude-vendor-dir (expand-file-name "vendor" prelude-dir)
+  "This directory houses packages that are not yet available in ELPA (or MELPA).")
+(defvar prelude-savefile-dir (expand-file-name "savefile" prelude-dir)
+  "This folder stores all the automatically generated save/history-files.")
+(defvar prelude-modules-file (expand-file-name "prelude-modules.el" prelude-dir)
+  "This files contains a list of modules that will be loaded by Prelude.")
 
+(unless (file-exists-p prelude-savefile-dir)
+  (make-directory prelude-savefile-dir))
 
-;; ;; ;; thanks to http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs
-;; ;; (defun duplicate-line-or-region (&optional n)
-;; ;;   "Duplicate current line, or region if active. With argument N, make N copies. With negative N, comment out original line and use the absolute value."
-;; ;;   (interactive "*p")
-;; ;;   (let ((use-region (use-region-p)))
-;; ;;     (save-excursion
-;; ;;       (let ((text (if use-region ;Get region if active, otherwise line
-;; ;;                       (buffer-substring (region-beginning) (region-end))
-;; ;;                     (prog1 (thing-at-point 'line)
-;; ;;                       (end-of-line)
-;; ;;                       (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
-;; ;;                           (newline))))))
-;; ;;         (dotimes (i (abs (or n 1))) ;Insert N times, or once if not specified
-;; ;;           (insert text))))
-;; ;;     (if use-region nil ;Only if we're working with a line (not a region)
-;; ;;       (let ((pos (- (point) (line-beginning-position)))) ;Save column
-;; ;;         (if (> 0 n) ;Comment out original with negative arg
-;; ;;             (comment-region (line-beginning-position) (line-end-position)))
-;; ;;         (forward-line 1)
-;; ;;         (forward-char pos)))))
+(defun prelude-add-subfolders-to-load-path (parent-dir)
+ "Add all level PARENT-DIR subdirs to the `load-path'."
+ (dolist (f (directory-files parent-dir))
+   (let ((name (expand-file-name f parent-dir)))
+     (when (and (file-directory-p name)
+                (not (equal f ".."))
+                (not (equal f ".")))
+       (add-to-list 'load-path name)
+       (prelude-add-subfolders-to-load-path name)))))
 
-;; ;; (defun move-line-up ()
-;; ;;   (interactive)
-;; ;;   (transpose-lines 1)
-;; ;;   (previous-line 2))
+;; add Prelude's directories to Emacs's `load-path'
+(add-to-list 'load-path prelude-core-dir)
+(add-to-list 'load-path prelude-modules-dir)
+(add-to-list 'load-path prelude-vendor-dir)
+(prelude-add-subfolders-to-load-path prelude-vendor-dir)
 
-;; ;; (defun move-line-down ()
-;; ;;   (interactive)
-;; ;;   (next-line 1)
-;; ;;   (transpose-lines 1)
-;; ;;   (previous-line 1))
+;; reduce the frequency of garbage collection by making it happen on
+;; each 50MB of allocated data (the default is on every 0.76MB)
+(setq gc-cons-threshold 50000000)
 
-;; Spelling
-;;
+;; preload the personal settings from `prelude-personal-preload-dir'
+(when (file-exists-p prelude-personal-preload-dir)
+  (message "Loading personal configuration files in %s..." prelude-personal-preload-dir)
+  (mapc 'load (directory-files prelude-personal-preload-dir 't "^[^#].*el$")))
 
-(require 'flyspell)
-(autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
+(message "Loading Prelude's core...")
 
-;; Keybindings
-;;
+;; the core stuff
+(require 'prelude-packages)
+(require 'prelude-ui)
+(require 'prelude-core)
+(require 'prelude-mode)
+(require 'prelude-editor)
+(require 'prelude-global-keybindings)
 
-;; ;; Useful urls for configuring iIterm to send correct xterm key codes:
-;; ;;   http://offbytwo.com/2012/01/15/emacs-plus-paredit-under-terminal.html
-;; ;;   https://github.com/emacsmirror/emacs/blob/master/lisp/term/xterm.el
+;; OSX specific settings
+(when (eq system-type 'darwin)
+  (require 'prelude-osx))
 
-;; ;; (global-set-key (kbd "C-S-<up>") 'move-line-up)
-;; ;; (global-set-key (kbd "C-S-<down>") 'move-line-down)
-;; ;; (global-set-key (kbd "C-S-<left>") 'previous-buffer)
-;; ;; (global-set-key (kbd "C-S-<right>") 'next-buffer)
-;; (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
+(message "Loading Prelude's modules...")
 
-(global-set-key (kbd "M-/") 'dabbrev-expand)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "M-s") 'save-buffer)
-(global-set-key (kbd "M-z") 'undo)
-(global-set-key (kbd "C-x C-k") 'kill-current-buffer)
+;; the modules
+(when (file-exists-p prelude-modules-file)
+  (load prelude-modules-file))
 
-;; ;; Enable shell script mode for zsh scripts
-;; ;;
+;; config changes made through the customize UI will be store here
+(setq custom-file (expand-file-name "custom.el" prelude-personal-dir))
 
-(setq auto-mode-alist (cons '("zprofile" . shell-script-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("zshrc" . shell-script-mode) auto-mode-alist))
+;; load the personal settings (this includes `custom-file')
+(when (file-exists-p prelude-personal-dir)
+  (message "Loading personal configuration files in %s..." prelude-personal-dir)
+  (mapc 'load (directory-files prelude-personal-dir 't "^[^#].*el$")))
 
-;; Enable paredit for ruby
-;;
+(message "Prelude is ready to do thy bidding, Master %s!" current-user)
 
-(add-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
+(prelude-eval-after-init
+ ;; greet the use with some useful tip
+ (run-at-time 5 nil 'prelude-tip-of-the-day))
 
-;; ;; Enable ruby-block mode
-;; ;;
-
-;; (require 'ruby-block)
-;; (ruby-block-mode t)
-;; (setq ruby-block-highlight-toggle t)
-
-;; ;; Enable on the fly syntax highlighting for ruby
-;; ;;
-
-;; (require 'flymake-ruby)
-;; (add-hook 'ruby-mode-hook 'flymake-ruby-load)
-
-;; ;; Ensure colors are handled properly in inf-ruby
-;; ;;
-
-;; (add-hook 'inf-ruby-mode-hook 'ansi-color-for-comint-mode-on)
-
-;; ;; Enable ruby-electric-mode in ruby-mode
-;; ;;
-
-;; (require 'ruby-electric)
-;; (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
-
-;; ;; Enable markdown-mode
-;; ;;
-
-(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
-;; Stop asking whether to save newly added abbrev when quitting emacs
-;;
-
-(setq save-abbrevs nil)
-
-;; (when (eq system-type 'darwin)
-;;   (require 'ls-lisp)
-;;     (setq ls-lisp-use-insert-directory-program nil))
-
-(defun new-notes-buffer ()
-  "Create and switch to a new notes buffer. Name based on current timestamp."
-  (interactive)
-  (switch-to-buffer
-   (find-file-noselect
-    (expand-file-name
-     (concat
-      "~/Documents/notes/notes-"
-      (format-time-string "%Y-%m-%d-%H-%M-%S")
-      ".txt")))))
-
-(global-set-key (kbd "M-n") 'new-notes-buffer)
-
-(setq interprogram-cut-function
-      (lambda (text &optional push)
-        (let* ((process-connection-type nil)
-               (pbproxy (start-process "pbcopy" "pbcopy" "/usr/local/bin/pbcopy")))
-          (process-send-string pbproxy text)
-          (process-send-eof pbproxy))))
-
+;;; init.el ends here
