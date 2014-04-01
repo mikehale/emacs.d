@@ -10,6 +10,14 @@
                             desktop
                             powerline
                             gitconfig-mode
+                            auto-complete
+                            dired-hacks-utils
+                            git-commit-mode
+                            git-rebase-mode
+                            highlight-indentation
+                            markdown-mode
+                            robe
+                            gh
                             bundler
                             ))
 
@@ -25,4 +33,8 @@
 
 (setq visible-bell nil)
 
-(add-hook 'ruby-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'ruby-mode-hook
+          (lambda()(highlight-indentation-current-column-mode +1)))
+
+(provide '001_init)
+;;; 001_init.el ends here
