@@ -55,6 +55,10 @@
 
 (define-key 'help-command (kbd "R") 'yari)
 
+(require 'inf-ruby)
+(require 'ruby-tools)
+(require 'yari)
+
 (eval-after-load 'ruby-mode
   '(progn
      (defun prelude-ruby-mode-defaults ()
