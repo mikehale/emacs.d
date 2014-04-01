@@ -1,3 +1,7 @@
+;;; notes.el --- notes
+
+;;; Code:
+
 (defun new-notes-buffer ()
   "Create and switch to a new notes buffer. Name based on current timestamp."
   (interactive)

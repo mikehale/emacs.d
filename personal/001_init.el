@@ -1,3 +1,7 @@
+;;; init.el --- initial customization
+
+;;; Code:
+
 (prelude-require-packages '(ag
                             dired-rainbow
                             rbenv
@@ -21,18 +25,4 @@
 
 (setq visible-bell nil)
 
-(powerline-default-theme)
 (add-hook 'ruby-mode-hook 'highlight-indentation-current-column-mode)
-
-(require 'auto-complete-config)
-(ac-config-default)
-(setq ac-ignore-case nil)
-(add-to-list 'ac-modes 'ruby-mode)
-(add-to-list 'ac-modes 'web-mode)
-
-(ac-set-trigger-key "TAB")
-
-;; Add mouse support (helpful for resizing panes)
-(require 'mouse)
-(xterm-mouse-mode t)
-(defun track-mouse (e))

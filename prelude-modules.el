@@ -8,14 +8,14 @@
 ;; (require 'prelude-coffee)
 ;; (require 'prelude-common-lisp)
 ;; (require 'prelude-css)
-;; (require 'prelude-emacs-lisp)
+(require 'prelude-emacs-lisp)
 ;; (require 'prelude-erc) ;; Emacs IRC client
 ;; (require 'prelude-erlang)
 ;; (require 'prelude-haskell)
 ;; (require 'prelude-js)
 (require 'prelude-key-chord) ;; Binds useful features to key combinations
 ;; (require 'prelude-latex)
-;; (require 'prelude-lisp)
+(require 'prelude-lisp)
 ;; (require 'prelude-mediawiki)
 ;; (require 'prelude-org) ;; Org-mode helps you keep TODO lists, notes and more
 ;; (require 'prelude-perl)
