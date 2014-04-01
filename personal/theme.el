@@ -3,6 +3,7 @@
 
 (disable-theme 'zenburn)
 (powerline-default-theme)
+(setq visible-bell nil)
 
 (when window-system
   (set-frame-size (selected-frame) 130 30)

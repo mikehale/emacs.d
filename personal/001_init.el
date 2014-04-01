@@ -5,13 +5,14 @@
 (prelude-require-packages '(ag
                             dired-rainbow
                             rainbow-delimiters
-                            gitconfig-mode
                             dired-hacks-utils
+                            gitconfig-mode
                             git-commit-mode
                             git-rebase-mode
+                            gh
                             highlight-indentation
                             markdown-mode
-                            gh))
+                            ))
 
 (defun kill-current-buffer () (interactive) (kill-buffer (buffer-name)))
 
@@ -21,7 +22,10 @@
 (global-set-key (kbd "M-z") 'undo)
 (global-set-key (kbd "C-x C-k") 'kill-current-buffer)
 
-(setq visible-bell nil)
+(setq prelude-guru nil)
+(setq flx-ido-threshhold 1000)
+(global-set-key [remap move-beginning-of-line]
+                'move-beginning-of-line)
 
 (provide '001_init)
 ;;; 001_init.el ends here
