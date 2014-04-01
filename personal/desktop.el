@@ -2,6 +2,8 @@
 
 ;;; Code:
 
+(prelude-require-package 'desktop)
+
 (desktop-save-mode 1)
 (defun my-desktop-save ()
   (interactive)

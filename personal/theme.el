@@ -1,3 +1,6 @@
+(prelude-require-packages '(obsidian-theme
+                            powerline))
+
 (disable-theme 'zenburn)
 (powerline-default-theme)
 
