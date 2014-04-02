@@ -5,5 +5,14 @@
 (global-rbenv-mode -1)
 (rbenv-use-global)
 (setq ruby-deep-indent-paren nil)
-(add-hook 'ruby-mode-hook
-          (lambda()(highlight-indentation-current-column-mode +1)))
+(require 'smartparens-ruby)
+
+(defun my-ruby-mode-defaults()
+  (highlight-indentation-current-column-mode +1)
+  (smartparens-strict-mode))
+
+(add-hook 'ruby-mode-hook 'my-ruby-mode-defaults)
+
+(sp-with-modes '(rhtml-mode)
+  (sp-local-pair "<" ">")
+  (sp-local-pair "<%" "%>"))

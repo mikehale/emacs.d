@@ -27,5 +27,8 @@
 (global-set-key [remap move-beginning-of-line]
                 'move-beginning-of-line)
 
+(smartparens-global-mode)
+(show-smartparens-global-mode t)
+
 (provide '001_init)
 ;;; 001_init.el ends here
