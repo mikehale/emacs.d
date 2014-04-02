@@ -37,18 +37,18 @@
 (prelude-require-packages '(ruby-tools inf-ruby yari))
 
 ;; Rake files are ruby, too, as are gemspecs, rackup files, and gemfiles.
-(add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Capfile\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.thor\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Thorfile\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Vagrantfile\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.jbuilder\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Podfile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rake\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.ru\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("Guardfile\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("Capfile\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.thor\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("Thorfile\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("Vagrantfile\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.jbuilder\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("Podfile\\'" . enh-ruby-mode))
 
 ;; We never want to edit Rubinius bytecode
 (add-to-list 'completion-ignored-extensions ".rbc")
@@ -59,18 +59,18 @@
 (require 'ruby-tools)
 (require 'yari)
 
-(eval-after-load 'ruby-mode
+(eval-after-load 'enh-ruby-mode
   '(progn
-     (defun prelude-ruby-mode-defaults ()
+     (defun prelude-enh-ruby-mode-defaults ()
        (inf-ruby-minor-mode +1)
        (ruby-tools-mode +1)
        ;; CamelCase aware editing operations
        (subword-mode +1))
 
-     (setq prelude-ruby-mode-hook 'prelude-ruby-mode-defaults)
+     (setq prelude-enh-ruby-mode-hook 'prelude-enh-ruby-mode-defaults)
 
-     (add-hook 'ruby-mode-hook (lambda ()
-                                 (run-hooks 'prelude-ruby-mode-hook)))))
+     (add-hook 'enh-ruby-mode-hook (lambda ()
+                                 (run-hooks 'prelude-enh-ruby-mode-hook)))))
 
 (provide 'prelude-ruby)
 ;;; prelude-ruby.el ends here
